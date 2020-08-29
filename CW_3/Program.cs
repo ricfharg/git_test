@@ -25,6 +25,7 @@ namespace CW_3
             string numGuess;
             Console.WriteLine("Guess the number: ");
             numGuess = Console.ReadLine();
+
             int res = Convert.ToInt32(numGuess);
             if(res < num)
             {
