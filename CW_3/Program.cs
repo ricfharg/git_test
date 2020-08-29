@@ -9,10 +9,19 @@ namespace CW_3
             Console.WriteLine("Hello World!");
             string menuChoice;
             Random rnd = new Random();
-            
-            int num = rnd.Next(1, 100);
-            Console.WriteLine("I'm thinking of a number between 1-100\n");
-            //Console.WriteLine(num);
+            string startNum, endNum;
+            Console.WriteLine("Enter the starting number:");
+            startNum = Console.ReadLine();
+            Console.WriteLine("Enter the end number");
+            endNum = Console.ReadLine();
+
+            int startNumInt, endNumInt;
+            startNumInt = Convert.ToInt32(startNum);
+            endNumInt = Convert.ToInt32(endNum);
+
+            int num = rnd.Next(startNumInt, endNumInt);
+            string startMsg = "I'm thinking of a number between " + startNum + " and " + endNum;
+            Console.WriteLine(startMsg);
             string numGuess;
             Console.WriteLine("Guess the number: ");
             numGuess = Console.ReadLine();
@@ -25,7 +34,8 @@ namespace CW_3
             {
                 Console.WriteLine("Guess a lower number");
             }
-            while(res != num)
+            int count = 1;
+            while (res != num)
             {
                 Console.WriteLine("Guess the number: ");
                 numGuess = Console.ReadLine();
@@ -39,8 +49,12 @@ namespace CW_3
                 else if (res > num)
                 {
                     Console.WriteLine("Guess a lower number");
-                }              
+                }
+                count++;
             }
+            string endMsg = "It took you " + count.ToString() + " tries to guess the right number";
+            Console.WriteLine(endMsg);
+
 
         }
     }
